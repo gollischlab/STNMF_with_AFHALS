@@ -1,0 +1,4 @@
+/* Prevent 100% width for carousel images */
+div.scbs-carousel > div.scbs-carousel-inner > div.scbs-carousel-item > img.scbs-w-100.align-center {
+    width: auto!important;
+}
