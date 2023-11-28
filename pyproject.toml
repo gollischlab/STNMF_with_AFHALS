@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stnmf"
+authors = [
+    {name = "Sören J. Zapp"},
+    {name = "Tim Gollisch"}
+]
+description = "Fast and versatile implementation of spike-triggered non-negative matrix factorization based on AF-HALS"
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.10"
+keywords = ["retina", "subunits", "receptive field", "STNMF", "NMF"]
+license = {text = "MIT"}
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "cycler>=0.12.1",
+    "matplotlib>=3.7.0",
+    "numpy>=1.22.0",
+    "scipy>=1.11.0",
+    "scikit-image>=0.22.0",
+    "shapely>=2.0.0",
+    "tqdm>=4.66.1",
+]
+dynamic = ["version"]
+
+[project.urls]
+Documentation = "https://stnmf.readthedocs.io"
+Repository = "https://github.com/gollischlab/STNMF_with_AFHALS.git"
+Issues = "https://github.com/gollischlab/STNMF_with_AFHALS/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "stnmf.__version__"}
+
+[tool.setuptools]
+packages = [
+    "stnmf",
+    "stnmf.preprocessing",
+    "stnmf.callbacks",
+]
