@@ -1,0 +1,5 @@
+/* Word wrap for citation */
+section#citation pre.literal-block.citation {
+    white-space: normal;
+    border: none;
+}

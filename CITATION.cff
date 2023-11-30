@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "STNMF with AF-HALS"
+url: "https://github.com/gollischlab/STNMF_with_AFHALS"
+authors:
+  - family-names: "Zapp"
+    given-names: "Sören J."
+    orcid: "https://orcid.org/0000-0003-0836-1663"
+  - family-names: "Gollisch"
+    given-names: "Tim"
+    orcid: "https://orcid.org/0000-0003-3998-533X"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Zapp"
+    given-names: "Sören J."
+    orcid: "https://orcid.org/0000-0003-0836-1663"
+  - family-names: "Khani"
+    given-names: "Mohammad H."
+    orcid: "https://orcid.org/0000-0003-3123-7054"
+  - family-names: "Schreyer"
+    given-names: "Helene M."
+  - family-names: "Mietsch"
+    given-names: "Matthias"
+    orcid: "https://orcid.org/0000-0002-3520-5394"
+  - family-names: "Protti"
+    given-names: "Dario A."
+    orcid: "https://orcid.org/0000-0002-2554-6419"
+  - family-names: "Karamanlis"
+    given-names: "Dimokratis"
+    orcid: "https://orcid.org/0000-0002-9469-5020"
+  - family-names: "Gollisch"
+    given-names: "Tim"
+    orcid: "https://orcid.org/0000-0003-3998-533X"
+  doi: "10.0000/00000"
+  journal: "Journal Title"
+  month: 9
+  start: 1 # First page number
+  end: 10 # Last page number
+  title: "Accelerated spike-triggered non-negative matrix factorization with hyperparameter tuning reveals differences and alignments among ganglion cell subunit mosaics in the primate retina"
+  issue: 1
+  volume: 1
+  year: 2024

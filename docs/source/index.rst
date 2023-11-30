@@ -10,6 +10,47 @@ Project links
 * Source code: https://github.com/gollischlab/STNMF_with_AFHALS
 * PyPI homepage: https://pypi.org/project/stnmf
 
+Citation
+--------
+
+|citation-msg|
+
+.. tab-set::
+
+   .. tab-item:: APA
+
+      .. raw:: html
+
+         <div class='highlight'>
+
+      .. parsed-literal::
+         :class: citation
+
+         |citation-apa|
+
+      .. raw:: html
+
+         </div>
+
+   .. tab-item:: BibTex
+
+      .. literalinclude:: _static/generated/citation.bib
+         :language: bibtex
+
+   .. tab-item:: RIS
+
+      .. literalinclude:: _static/generated/citation.ris
+         :language: none
+
+   .. tab-item:: CFF
+
+      .. literalinclude:: ../../CITATION.cff
+         :language: yaml
+
+.. raw:: html
+
+   <br />
+
 .. toctree::
    :caption: Getting started
    :titlesonly:

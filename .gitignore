@@ -1,5 +1,6 @@
 # Specific files to this repository
 /docs/source/api/generated/
+/docs/source/_static/generated/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
