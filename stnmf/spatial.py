@@ -60,12 +60,12 @@ def moransi(image, p_value=False):
 
     References
     ----------
-    .. [1] Moran, P. A. P. (1950). "Notes on Continuous Stochastic
-           Phenomena". Biometrika. 37 (1): 17–23.
+    .. [1] Moran, P. A. P. (1950). Notes on Continuous Stochastic
+           Phenomena. Biometrika. 37 (1): 17–23.
 
     .. [2] Li, Hongfei; Calder, Catherine A.; Cressie, Noel (2007).
-           "Beyond Moran's I: Testing for Spatial Dependence Based on
-           the Spatial Autoregressive Model". Geographical Analysis. 39
+           Beyond Moran's I: Testing for Spatial Dependence Based on
+           the Spatial Autoregressive Model. Geographical Analysis. 39
            (4): 357–375.
     """
     ndim = np.ndim(image)
@@ -189,8 +189,8 @@ def ellipse(image, sigma=2.0):
     References
     ----------
     .. [1] Baden, T., Berens, P., Franke, K., Román Rosón, M., Bethge,
-            M., and Euler, T. (2016). "The functional diversity of
-            retinal ganglion cells in the mouse". Nature, 529(7586),
+            M., and Euler, T. (2016). The functional diversity of
+            retinal ganglion cells in the mouse. Nature, 529(7586),
             345–350.
     """
     if sigma <= 0:

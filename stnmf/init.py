@@ -31,12 +31,12 @@ The code below is equivalent.
 References
 ----------
 .. [1] Cichocki, A., Zdunek, R., Phan, A. H., & Amari, S. (2009).
-       "Nonnegative Matrix and Tensor Factorizations" (1st ed.).
+       Nonnegative Matrix and Tensor Factorizations (1st ed.).
        Chichester, UK: John Wiley & Sons, Ltd.
 
-.. [2] Atif, S. M., Qazi, S., & Gillis, N. (2019). "Improved SVD-based
+.. [2] Atif, S. M., Qazi, S., & Gillis, N. (2019). Improved SVD-based
        initialization for nonnegative matrix factorization using
-       low-rank correction". Pattern Recognition Letters, 122, 53–59.
+       low-rank correction. Pattern Recognition Letters, 122, 53–59.
 """
 import numpy as np
 from scipy.sparse.linalg import svds
@@ -132,9 +132,9 @@ def nnsvdlrc(v, r, lrc=True, dtype='float32'):
 
     References
     ----------
-    .. [1] Atif, S. M., Qazi, S., & Gillis, N. (2019). "Improved
+    .. [1] Atif, S. M., Qazi, S., & Gillis, N. (2019). Improved
            SVD-based initialization for nonnegative matrix factorization
-           using low-rank correction". Pattern Recognition Letters, 122,
+           using low-rank correction. Pattern Recognition Letters, 122,
            53–59.
     """
     v = np.asarray(v, dtype=dtype)

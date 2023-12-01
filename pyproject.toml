@@ -11,7 +11,7 @@ authors = [
 description = "Fast and versatile implementation of spike-triggered non-negative matrix factorization based on AF-HALS"
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.10"
-keywords = ["retina", "subunits", "receptive field", "STNMF", "NMF"]
+keywords = ["retina", "subunits", "primate", "receptive field", "neuroscience", "STNMF", "NMF", "NNSVD-LRC", "HALS"]
 license = {text = "MIT"}
 classifiers = [
     "Intended Audience :: Science/Research",
@@ -22,8 +22,8 @@ dependencies = [
     "cycler>=0.12.1",
     "matplotlib>=3.7.0",
     "numpy>=1.22.0",
-    "scipy>=1.11.0",
     "scikit-image>=0.22.0",
+    "scipy>=1.11.0",
     "shapely>=2.0.0",
     "tqdm>=4.66.1",
 ]

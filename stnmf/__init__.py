@@ -12,10 +12,10 @@ of hyperparameter tuning.
 
 Described in the paper:
 
-Zapp SJ, Khani MH, Schreyer HM, Mietsch M, Protti DA, Karamanlis D,
-Gollisch T: **"Accelerated spike-triggered non-negative matrix
-factorization with hyperparameter tuning reveals differences and
-alignments among ganglion cell subunit mosaics in the primate retina"**
+|citation-apa|
+
+..
+    See documentation for rendered citation!
 
 This Python packages provides code to recover spatial subunits from a
 spike-triggered stimulus ensemble using matrix factorization to solve

@@ -50,7 +50,7 @@ def create_rng(seed=None):
 
     References
     ----------
-    .. [1] Matsumoto, & Nishimura. (1998). "Mersenne twister". ACM
+    .. [1] Matsumoto, & Nishimura. (1998). Mersenne twister. ACM
            Transactions on Modeling and Computer Simulation, 8(1), 3–30.
     """
     mt = np.random.MT19937()

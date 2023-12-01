@@ -55,8 +55,8 @@ autodoc_mock_imports = [
     'mpl_toolkits',
     'numpy',
     'scipy',
-    'skimage',
     'shapely',
+    'skimage',
     'tqdm',
 ]
 
@@ -121,7 +121,7 @@ def get_doi(doi, mime_type):
     url = 'http://dx.doi.org/' + doi
     resp = requests.get(url, headers={'accept': mime_type}, timeout=60)
     resp.encoding = 'utf-8'
-    return resp.text.strip() if resp.ok else 'Not available'
+    return resp.text.strip() if resp.ok else 'Reference not available'
 
 
 citation = yaml.safe_load(open('../../CITATION.cff').read())
@@ -136,7 +136,9 @@ bib = get_doi(citation['doi'], 'application/x-bibtex')
 bib = bib.replace('ö', r'{\\"{o}}')
 bib = bib.replace('ä', r'{\\"{a}}')
 bib = bib.replace('ü', r'{\\"{u}}')
-bib = bib.replace('} }', '}\n}')
+pos = bib.rfind('}')
+if pos != -1:
+    bib = bib[:pos] + '\n}\n'
 bib = re.sub(r',([^=,]+)\s*=', r',\n    \1=', bib)
 bib = re.sub(r'(\s{4,}[\d\w]+)\s*=\s*', r'\1 = ', bib)
 

@@ -14,7 +14,7 @@ The individual steps can be followed like a tutorial, e.g. by copying the code b
     :local:
     :depth: 1
 
-.. [1] Gollisch, T., and Liu, J. K. (2018). "Data: Salamander retinal ganglion cells under finely structured spatio-temporal white noise" [Dataset]. G-Node. https://doi.org/10.12751/g-node.62b65b
+.. [1] Gollisch, T., and Liu, J. K. (2018). Data: Salamander retinal ganglion cells under finely structured spatio-temporal white noise [Dataset]. G-Node. https://doi.org/10.12751/g-node.62b65b
 
 Preparation
 -----------

@@ -107,15 +107,15 @@ def afhals(vht, hht, w0, rho=0.0, alpha=0.5, eps=0.1, lmbda=0, inplace=False):
 
     References
     ----------
-    .. [1] Cichocki, A., & Phan, A. H. (2009). "Fast local algorithms
+    .. [1] Cichocki, A., & Phan, A. H. (2009). Fast local algorithms
            for large scale nonnegative matrix and tensor
-           factorizations". IEICE Transactions on Fundamentals of
+           factorizations. IEICE Transactions on Fundamentals of
            Electronics, Communications and Computer Sciences, E92-A(3),
            708–721.
 
-    .. [2] Gillis, N., & Glineur, F. (2012). *Accelerated Multiplicative
+    .. [2] Gillis, N., & Glineur, F. (2012). Accelerated Multiplicative
            Updates and Hierarchical ALS Algorithms for Nonnegative
-           Matrix Factorization*. Neural Computation, 24(4), 1085–1105.
+           Matrix Factorization. Neural Computation, 24(4), 1085–1105.
     """
     vht = np.asarray(vht)
     hht = np.asarray(hht)
