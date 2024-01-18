@@ -33,8 +33,11 @@ def callback(self, i, itor, callback_data, sparsities, num_rep=30,
         over. Default is 30
 
     max_elem : int, optional
-        Number of maximum elements to consider in consensus check,
-        Higher number may require a lot of memory. Default is 25000
+        Maximum number of columns to consider from the encodings matrix.
+        Reducing this value is beneficial if the encodings matrix
+        has many columns, i.e. if the STNMF weight factor matrix has
+        many spikes. Higher values may require a lot of memory. Default
+        is 25000
 
     Notes
     -----

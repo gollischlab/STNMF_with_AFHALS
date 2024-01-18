@@ -2,7 +2,7 @@ Examples
 ========
 
 This page will guide through some basic usage examples to illustrate how to use STNMF to obtain subunits from an effective spike-triggered stimulus ensemble (STE).
-The examples start from an existing and well-formatted STE of a salamander retinal ganglion cell recorded under spatiotemporal white-noise stimulation. [1]_
+The examples start from an existing and well-formatted STE of a salamander retinal ganglion cell recorded under spatiotemporal white-noise stimulation [1]_.
 The STE has been reduced in its number of spikes here in favor of file size.
 For more information on how to prepare the stimulus and spiking response data, see :mod:`stnmf.preprocessing`.
 

@@ -108,6 +108,7 @@ html_css_files = [
     'css/remove_links.css',
     'css/carousel_width.css',
     'css/design_wordwrap.css',
+    'css/bracket_notation.css',
 ]
 
 # -- Options for EPUB output

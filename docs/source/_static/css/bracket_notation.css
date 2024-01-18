@@ -1,0 +1,14 @@
+/* Chage superscript references to bracket notation */
+.rst-content .citation-reference.brackets,
+.rst-content .footnote-reference.brackets {
+    vertical-align: unset;
+    position: unset;
+    top: unset;
+    line-height: unset;
+    font-size: unset;
+}
+
+.rst-content .citation-reference > span.fn-bracket,
+.rst-content .footnote-reference > span.fn-bracket {
+    display: unset;
+}

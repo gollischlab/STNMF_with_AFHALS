@@ -20,6 +20,15 @@ preferred-citation:
     orcid: "https://orcid.org/0000-0003-3123-7054"
   - family-names: "Schreyer"
     given-names: "Helene M."
+  - family-names: "Sridhar"
+    given-names: "Shashwat"
+    orcid: "https://orcid.org/0000-0002-8837-8555"
+  - family-names: "Ramakrishna"
+    given-names: "Varsha"
+    orcid: "https://orcid.org/0009-0002-1369-2600"
+  - family-names: "Krüppel"
+    given-names: "Steffen"
+    orcid: "https://orcid.org/0000-0002-2773-6785"
   - family-names: "Mietsch"
     given-names: "Matthias"
     orcid: "https://orcid.org/0000-0002-3520-5394"
@@ -37,7 +46,7 @@ preferred-citation:
   month: 9
   start: 1 # First page number
   end: 10 # Last page number
-  title: "Accelerated spike-triggered non-negative matrix factorization with hyperparameter tuning reveals differences and alignments among ganglion cell subunit mosaics in the primate retina"
+  title: "Accelerated spike-triggered non-negative matrix factorization reveals coordinated ganglion cell subunit mosaics in the primate retina"
   issue: 1
   volume: 1
   year: 2024

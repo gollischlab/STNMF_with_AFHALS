@@ -1,12 +1,12 @@
 Hyperparameter selection
 ========================
 
-An essential part of STNMF is to chose a suitable parameter for sparsity regularization, because sparsity is an integral part of semi-NMF to produce a parts-based decomposition. [1]_
+An essential part of STNMF is to chose a suitable parameter for sparsity regularization, because sparsity is an integral part of semi-NMF to produce a parts-based decomposition [1]_.
 The sparsity is applied to the module matrix of STNMF, such that low-magnitude pixel values are penalized and set to zero.
 Along with the non-negativity constraint, this encourages sparse representations.
 
 Careful selection of the sparsity weight results in localized subunits, and depends on the dimensionality of the data and its contamination with noise.
-Because of similarities in their response properties, hyperparameter selection of sparsity may be similar for cells of the same functional type. [2]_
+Because of similarities in their response properties, hyperparameter selection of sparsity may be similar for cells of the same functional type [2]_.
 
 Consensus analyses
 ------------------
@@ -62,7 +62,7 @@ The stability of the decomposition for each sparsity is quantified as the cophen
     array([0.22871876, 0.6855058 , 0.9002583 , 0.96028996, 0.95667326],
       dtype=float32)
 
-More information on the hyperparameter selection using consensus analyses is described in detail elsewhere. [2]_
+More information on the hyperparameter selection using consensus analyses is described in detail elsewhere [2]_.
 
 .. [1] Ding, C. H. Q., Tao Li, & Jordan, M. I. (2010). Convex and Semi-Nonnegative Matrix Factorizations. IEEE Transactions on Pattern Analysis and Machine Intelligence, 32(1), 45–55
 

@@ -17,16 +17,17 @@ Described in the paper:
 ..
     See documentation for rendered citation!
 
-This Python packages provides code to recover spatial subunits from a
+The package provides code to recover spatial subunits from a
 spike-triggered stimulus ensemble using matrix factorization to solve
 
     :math:`\\mathbf{V} \\approx \\mathbf{W} \\mathbf{H} \\,,`
 
-where `v` is the effective spike-triggered stimulus ensemble (STE), an
-`(n, m)` :term:`array_like` consisting of `n` pixels and `m` spikes and
-`w` is an `(n, r)` :term:`array_like` containing the recovered spatial
-modules with the corresponding weights `h` as `(r, m)`
-:term:`array_like`.
+with a non-negativity constraint on :math:`\\mathbf{W}`. Here
+:math:`\\mathbf{V}` is the effective spike-triggered stimulus ensemble
+(STE), an `(n, m)` :term:`array_like` consisting of `n` pixels and `m`
+spikes and :math:`\\mathbf{W}` is an `(n, r)` :term:`array_like`
+containing the recovered spatial modules with the corresponding weights
+:math:`\\mathbf{H}` as `(r, m)` :term:`array_like`.
 """
 __version__ = '1.0.0'
 __all__ = [

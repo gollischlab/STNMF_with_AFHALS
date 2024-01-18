@@ -57,10 +57,10 @@ The object is now stored in the variable `stnmf`. This :class:`STNMF <stnmf.STNM
 Among the most accessible are the following, where `r` is the number of modules (the defined upper bound) and `l` is the number of the localized subunits as defined by the sufficient spatial autocorrelation.
 
 :attr:`STNMF.subunits <stnmf.STNMF.subunits>` : *(l, x, y)* :class:`numpy.ndarray`
-    Recovered spatially localized subunits (normalized), where `l` is the number of modules considered to be localized subunits, and `x` and `y` are the spatial dimensions from the STE
+    Recovered spatially localized subunits (normalized), where `l` is the number of subunits (modules considered to be localized subunits), and `x` and `y` are the spatial dimensions from the STE
 
 :attr:`STNMF.ratios <stnmf.STNMF.ratios>` : *(l,)* :class:`numpy.ndarray`
-    Scalar weight of each subunit (normalized), where `l` is the number of subunits
+    Scalar weights/contribution ratios of the subunits (:math:`\ell 2`-normalized), i.e. the subset of STNMF weights averaged over the spikes, where `l` is the number of subunits
 
 :attr:`STNMF.outlines <stnmf.STNMF.outlines>` : *(l,)* :class:`numpy.ndarray`
     Contour outlines of the localized subunits
