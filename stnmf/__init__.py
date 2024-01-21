@@ -12,10 +12,12 @@ of hyperparameter tuning.
 
 Described in the paper:
 
-|citation-apa|
+    |citation-apa|
 
 ..
-    See documentation for rendered citation!
+    See documentation for citation:
+        https://stnmf.readthedocs.io
+    If you use this software, please cite it as indicated.
 
 The package provides code to recover spatial subunits from a
 spike-triggered stimulus ensemble using matrix factorization to solve

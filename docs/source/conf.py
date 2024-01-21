@@ -119,21 +119,51 @@ epub_show_urls = 'footnote'
 # -- Citation
 
 def get_doi(doi, mime_type):
-    url = 'http://dx.doi.org/' + doi
+    url = 'http://dx.doi.org/' + str(doi)
     resp = requests.get(url, headers={'accept': mime_type}, timeout=60)
     resp.encoding = 'utf-8'
     return resp.text.strip() if resp.ok else 'Reference not available'
 
 
-citation = yaml.safe_load(open('../../CITATION.cff').read())
-citation_message = citation.get('message', '')
+citation = yaml.safe_load(open('../../CITATION.cff', encoding='utf-8').read())
+citation_message = citation.get('message') or ''
 if 'preferred-citation' in citation:
     citation = citation['preferred-citation']
 
-apa = get_doi(citation['doi'], 'text/plain')
-ris = get_doi(citation['doi'], 'application/x-research-info-systems')
-bib = get_doi(citation['doi'], 'application/x-bibtex')
+doi = citation.get('doi')
+if doi:
+    apa = get_doi(doi, 'text/plain')
+    ris = get_doi(doi, 'application/x-research-info-systems')
+    bib = get_doi(doi, 'application/x-bibtex')
 
+# Fallback until published (until DOI available)
+if not doi or apa == 'Reference not available':
+    author_list = [author['family-names'] + ', ' + author['given-names']
+                   for author in citation['authors']]
+
+    # APA
+    if len(author_list) > 1:
+        apa = ', '.join(author_list[:-1]) + ' & ' + author_list[-1]
+    else:
+        apa = author_list[0]
+    apa += f' ({citation.get("year") or year}). {citation["title"]}'
+
+    # RIS
+    ris = 'TY  - JOUR' + '\n'
+    ris += f'TI  - {citation["title"]}' + '\n'
+    ris += 'AU  - ' + '\nAU  - '.join(author_list) + '\n'
+    ris += f'PY  - {citation.get("year") or year}' + '\n'
+    ris += 'ER  -' + '\n'
+
+    # BIB
+    bib = f'@{citation.get("type") or "article"}' + '{'
+    bib += f'{citation["authors"][0]["family-names"]}'
+    bib += f'{citation.get("year") or year},'
+    bib += 'author = {' + ' and '.join(author_list) + '},'
+    bib += r'title = {{' + citation['title'] + r'}},'
+    bib += 'year = {' + str(citation.get('year') or year) + r'}}'
+
+# Format bibtex
 bib = bib.replace('ö', r'{\\"{o}}')
 bib = bib.replace('ä', r'{\\"{a}}')
 bib = bib.replace('ü', r'{\\"{u}}')
