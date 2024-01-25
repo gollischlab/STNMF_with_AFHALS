@@ -138,20 +138,28 @@ if doi:
 
 # Fallback until published (until DOI available)
 if not doi or apa == 'Reference not available':
-    author_list = [author['family-names'] + ', ' + author['given-names']
-                   for author in citation['authors']]
+    # Author list with full names
+    author_list_full = [author['family-names'] + ', ' + author['given-names']
+                        for author in citation['authors']]
+    # Author list with first initials
+    author_list_init = [
+        author['family-names'] + ', ' +
+        ' '.join(map(lambda x: x[0]+'.',
+                     author['given-names'].replace('-', ' ').split(' ')))
+        for author in citation['authors']
+    ]
 
     # APA
-    if len(author_list) > 1:
-        apa = ', '.join(author_list[:-1]) + ' & ' + author_list[-1]
+    if len(author_list_init) > 1:
+        apa = ', '.join(author_list_init[:-1]) + ', & ' + author_list_init[-1]
     else:
-        apa = author_list[0]
+        apa = author_list_init[0]
     apa += f' ({citation.get("year") or year}). {citation["title"]}'
 
     # RIS
     ris = 'TY  - JOUR' + '\n'
     ris += f'TI  - {citation["title"]}' + '\n'
-    ris += 'AU  - ' + '\nAU  - '.join(author_list) + '\n'
+    ris += 'AU  - ' + '\nAU  - '.join(author_list_full) + '\n'
     ris += f'PY  - {citation.get("year") or year}' + '\n'
     ris += 'ER  -' + '\n'
 
@@ -159,7 +167,7 @@ if not doi or apa == 'Reference not available':
     bib = f'@{citation.get("type") or "article"}' + '{'
     bib += f'{citation["authors"][0]["family-names"]}'
     bib += f'{citation.get("year") or year},'
-    bib += 'author = {' + ' and '.join(author_list) + '},'
+    bib += 'author = {' + ' and '.join(author_list_full) + '},'
     bib += r'title = {{' + citation['title'] + r'}},'
     bib += 'year = {' + str(citation.get('year') or year) + r'}}'
 
