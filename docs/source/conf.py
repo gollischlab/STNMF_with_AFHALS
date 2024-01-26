@@ -6,6 +6,7 @@ import os
 import re
 import requests
 import sys
+import tomllib
 import yaml
 sys.path.insert(0, os.path.abspath('../../'))
 
@@ -165,7 +166,7 @@ if not doi or apa == 'Reference not available':
 
     # BIB
     bib = f'@{citation.get("type") or "article"}' + '{'
-    bib += f'{citation["authors"][0]["family-names"]}'
+    bib += f'{citation["authors"][0]["family-names"].replace(" ", "")}'
     bib += f'{citation.get("year") or year},'
     bib += 'author = {' + ' and '.join(author_list_full) + '},'
     bib += r'title = {{' + citation['title'] + r'}},'
@@ -175,6 +176,7 @@ if not doi or apa == 'Reference not available':
 bib = bib.replace('ö', r'{\\"{o}}')
 bib = bib.replace('ä', r'{\\"{a}}')
 bib = bib.replace('ü', r'{\\"{u}}')
+bib = bib.replace('ß', r'{\\ss}')
 pos = bib.rfind('}')
 if pos != -1:
     bib = bib[:pos] + '\n}\n'
@@ -187,6 +189,29 @@ with open(os.path.join(stat_gen, 'citation.ris'), 'w', encoding='utf-8') as f:
 with open(os.path.join(stat_gen, 'citation.bib'), 'w', encoding='utf-8') as f:
     f.write(bib)
 
+
+# -- Package dependencies
+
+def link_pip_package(dep):
+    res = re.search(r'([^><=~!]*)([<>=~]*)(.*)', dep)
+    name = res.group(1)
+    rel = res.group(2)
+    ver = res.group(3)
+    return f'`{name} <https://pypi.org/project/{name}/{ver}>`_{rel}{ver}'
+
+
+pyproject = tomllib.load(open('../../pyproject.toml', 'rb'))
+py_ver = re.search(r'([<>=~!]*)(.*)', pyproject['project']['requires-python'])
+dependencies = (
+    '* `python <https://www.python.org/downloads>`_'
+    f'{py_ver.group(1)}{py_ver.group(2)}\n'
+)
+dep_list = pyproject['project']['dependencies']
+dependencies += '\n'.join(map(lambda x: '* ' + link_pip_package(x), dep_list))
+
+with open(os.path.join(stat_gen, 'dependencies.rst'), 'w',
+          encoding='utf-8') as f:
+    f.write(dependencies)
 
 # -- Substitution
 

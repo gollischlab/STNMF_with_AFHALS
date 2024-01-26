@@ -17,9 +17,15 @@ Using source files
 
 Alternatively, :mod:`stnmf` can be downloaded and used locally from the working directory in editible form.
 Installing the package dependencies is still required.
+Either using the following commmand-line prompt or manually (see list below).
 
 .. code-block:: bash
 
     git clone https://github.com/gollischlab/STNMF_with_AFHALS.git stnmf
     cd stnmf
     pip install -e .
+
+Dependencies
+^^^^^^^^^^^^
+
+.. include:: ../_static/generated/dependencies.rst
