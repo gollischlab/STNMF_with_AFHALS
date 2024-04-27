@@ -52,6 +52,7 @@ def create_rng(seed=None):
     ----------
     .. [1] Matsumoto, & Nishimura. (1998). Mersenne twister. ACM
            Transactions on Modeling and Computer Simulation, 8(1), 3–30.
+           https://doi.org/10.1145/272991.272995
     """
     mt = np.random.MT19937()
     mt.state = np.random.RandomState(seed).get_state()

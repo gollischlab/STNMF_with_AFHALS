@@ -171,6 +171,22 @@ if not doi or apa == 'Reference not available':
     bib += 'author = {' + ' and '.join(author_list_full) + '},'
     bib += r'title = {{' + citation['title'] + r'}},'
     bib += 'year = {' + str(citation.get('year') or year) + r'}}'
+else:
+    # Edge case: bioRxiv is not listed as journal
+    journal = citation.get('journal', None)
+    start_p = citation.get('start', None)
+    if (journal == 'bioRxiv' and start_p and bib.find('journal=') == -1
+            and bib.find('pages=') == -1):
+        bpos = bib.rfind('}')
+        bib = bib[:bpos].rstrip()
+        bib += f', journal={{{journal}}}, pages={{{start_p}}} }}'
+        apos = apa.rfind('. http')
+        apa = apa[:apos] + f'. {journal}, {start_p}' + apa[apos:]
+        rpos = ris.rfind('\nER  -')
+        ris = ris[:rpos] + f'\nJF  - {journal}\nSP  - {start_p}' + ris[rpos:]
+    # Remove DOI from APA for consistency across references
+    # apa = re.sub(r'\shttps?://.*$', '', apa)
+
 
 # Format bibtex
 bib = bib.replace('ö', r'{\\"{o}}')

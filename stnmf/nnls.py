@@ -111,11 +111,12 @@ def afhals(vht, hht, w0, rho=0.0, alpha=0.5, eps=0.1, lmbda=0, inplace=False):
            for large scale nonnegative matrix and tensor
            factorizations. IEICE Transactions on Fundamentals of
            Electronics, Communications and Computer Sciences, E92-A(3),
-           708–721.
+           708–721. https://doi.org/10.1587/transfun.E92.A.708
 
     .. [2] Gillis, N., & Glineur, F. (2012). Accelerated Multiplicative
            Updates and Hierarchical ALS Algorithms for Nonnegative
            Matrix Factorization. Neural Computation, 24(4), 1085–1105.
+           https://doi.org/10.1162/NECO_a_00256
     """
     vht = np.asarray(vht)
     hht = np.asarray(hht)

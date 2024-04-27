@@ -64,6 +64,6 @@ The stability of the decomposition for each sparsity is quantified as the cophen
 
 More information on the hyperparameter selection using consensus analyses is described in detail elsewhere [2]_.
 
-.. [1] Ding, C. H. Q., Tao Li, & Jordan, M. I. (2010). Convex and Semi-Nonnegative Matrix Factorizations. IEEE Transactions on Pattern Analysis and Machine Intelligence, 32(1), 45–55
+.. [1] Ding, C. H. Q., Tao Li, & Jordan, M. I. (2010). Convex and Semi-Nonnegative Matrix Factorizations. IEEE Transactions on Pattern Analysis and Machine Intelligence, 32(1), 45–55. https://doi.org/10.1109/TPAMI.2008.277
 
 .. [2] |citation-apa|
