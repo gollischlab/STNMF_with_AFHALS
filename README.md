@@ -11,7 +11,7 @@ This Python package allows fast inference of receptive-field subunits from the s
 
 Described in the paper:
 
-> **Zapp SJ, Khani MH, Schreyer HM, Sridhar S, Ramakrishna V, Krüppel S, Protti DA, Mietsch M, Karamanlis D, Gollisch T (2024). Accelerated spike-triggered non-negative matrix factorization reveals coordinated ganglion cell subunit mosaics in the primate retina. *bioRxiv*, 590506.** [10.1101/2024.04.22.590506](https://doi.org/10.1101/2024.04.22.590506)
+> **Zapp SJ, Khani MH, Schreyer HM, Sridhar S, Ramakrishna V, Krüppel S, Protti DA, Mietsch M, Karamanlis D, Gollisch T (2024). Accelerated spike-triggered non-negative matrix factorization reveals coordinated ganglion cell subunit mosaics in the primate retina. *bioRxiv*, 590506.** https://doi.org/10.1101/2024.04.22.590506
 
 ## Documentation
 The documentation is available at [https://stnmf.readthedocs.io](https://stnmf.readthedocs.io).
