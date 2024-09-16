@@ -344,7 +344,7 @@ def stimulusensemble(stimulus, spikes, sta_temp, continuous=False,
         ind = np.nonzero(sp)[0]
         for i in ind:
             np.dot(stim[..., i:i+tau], sta_temp, out=sts[..., 0])
-            num_sp = sp[i, 0]
+            num_sp = int(sp[i, 0])
             np.copyto(ste[..., s_ind:s_ind+num_sp], sts)
             s_ind += num_sp
 

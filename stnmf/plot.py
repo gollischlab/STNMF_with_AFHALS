@@ -375,7 +375,7 @@ def weights(w, m, colors=default_color, ax=None, yticks=True, **kwargs):
              plt.rcParams['font.family'])
     ax.grid(axis='y', color='lightgray')
     ax.get_ygridlines()[0].set_xdata((0.05, 1))
-    margin = w.ptp() * 0.1
+    margin = np.ptp(w) * 0.1
     ax.set_ylim(min(w.min(), 0) - margin, max(w.max(), 0) + margin)
 
 
