@@ -31,7 +31,7 @@ spikes and :math:`\\mathbf{W}` is an `(n, r)` :term:`array_like`
 containing the recovered spatial modules with the corresponding weights
 :math:`\\mathbf{H}` as `(r, m)` :term:`array_like`.
 """
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 __all__ = [
     'STNMF',
     'preprocessing',
