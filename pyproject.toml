@@ -1,23 +1,29 @@
-[build-system]
-requires = ["setuptools>=61.0.0"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "stnmf"
+version = "1.1.0"
 authors = [
     {name = "Sören J. Zapp"},
-    {name = "Tim Gollisch"}
+    {name = "Tim Gollisch"},
 ]
 description = "Fast and versatile implementation of spike-triggered non-negative matrix factorization based on AF-HALS"
 readme = {file = "README.md", content-type = "text/markdown"}
-requires-python = ">=3.10"
 keywords = ["retina", "subunits", "primate", "receptive field", "neuroscience", "STNMF", "NMF", "NNSVD-LRC", "HALS"]
-license = {text = "MIT"}
+license = 'MIT'
+license-files = ['LICENSE']
 classifiers = [
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Programming Language :: Python :: 3.14',
     "Intended Audience :: Science/Research",
     "Operating System :: OS Independent",
     "Topic :: Scientific/Engineering",
 ]
+requires-python = ">=3.10"
 dependencies = [
     "cycler>=0.12.1",
     "matplotlib>=3.7.0",
@@ -27,19 +33,103 @@ dependencies = [
     "shapely>=2.0.0",
     "tqdm>=4.66.1",
 ]
-dynamic = ["version"]
 
 [project.urls]
 Documentation = "https://stnmf.readthedocs.io"
 Repository = "https://github.com/gollischlab/STNMF_with_AFHALS.git"
 Issues = "https://github.com/gollischlab/STNMF_with_AFHALS/issues"
 
-[tool.setuptools.dynamic]
-version = {attr = "stnmf.__version__"}
-
-[tool.setuptools]
-packages = [
-    "stnmf",
-    "stnmf.preprocessing",
-    "stnmf.callbacks",
+[dependency-groups]
+dev = [
+    "ruff>=0.15.8",
+    "ty>=0.0.26",
+    "interrogate>=1.7.0",
+    "prek>=0.3.8",
+    "nox>=2026.7.11",
 ]
+tests = [
+    "dirty-equals>=0.11",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.1.0",
+    "pytest-randomly>=4.0.1",
+]
+docs = [
+    "pyyaml==6.0.1",
+    "requests==2.32.3",
+    "sphinx==7.2.6",
+    "sphinx-carousel==1.2.0",
+    "sphinx-copybutton==0.5.2",
+    "sphinx-design==0.5.0",
+    "sphinx-rtd-theme==2.0.0",
+]
+
+[tool.uv]
+default-groups = [
+    "dev",
+    "tests",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.32,<0.12"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+extend-select = [
+    "I",     # organize-imports
+    "E501",  # line-too-long
+    "UP006", # non-pep585-annotation
+    "UP035", # deprecated-import
+    "D200",  # unnecessary-multiline-docstring
+    "D209",  # new-line-after-last-paragraph
+    "D210",  # surrounding-whitespace
+    "D403",  # first-word-capitalized
+    "D405",  # non-capitalized-section-name
+    "D416",  # missing-section-name-colon
+]
+ignore = [
+    "E731", # lambda-assignment
+]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**/test_*.py" = ["S101"] # assert
+
+[tool.ruff.format]
+line-ending = "lf"
+
+[tool.pytest]
+strict_xfail = true # Error on successful tests that should fail
+addopts = [
+    "-ra",                     # More insights
+    "-vv",                     # Show parametrized test names
+    "--strict-markers",        # Prevent silent bugs
+    "--strict-config",         # Report errors in config
+    "--doctest-modules",       # Test code examples in doc strings
+    "--cov",                   # Report coverage by default
+    "--import-mode=importlib", # Prevent importing from local src
+]
+testpaths = ["tests", "src"] # Speed up collection; include src for doctest
+
+[tool.coverage.run]
+source = [
+    "src",
+    "tests", # Spot outdated tests
+]
+branch = true
+
+[tool.coverage.report]
+fail_under = 100     # Clean coverage. Use `#pragma: no cover` to skip coverage.
+ignore_errors = true
+show_missing = true
+skip_covered = true
+skip_empty = true
+
+[tool.interrogate]
+omit-covered-files = true
+verbose = 2
+fail-under = 100
+whitelist-regex = ["test_.*"]
+exclude = ["*.cache"]
+style = "numpy"

@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "astral-sh.ty",
+        "detachhead.dtach",
+        "kennethlove.interrogate",
+        "DavidAnson.vscode-markdownlint",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+        "nefrob.vscode-just-syntax",
+    ]
+}

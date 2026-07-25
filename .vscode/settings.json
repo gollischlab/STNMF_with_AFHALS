@@ -1,0 +1,94 @@
+{
+    "interrogate.importStrategy": "fromEnvironment",
+    "interrogate.args": [],
+    "tach.importStrategy": "fromEnvironment",
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.configurationPreference": "editorFirst",
+    "ruff.configuration": {
+        "lint": {
+            "unfixable": [
+                "F401" // Prevent removing unused imports on save
+            ]
+        }
+    },
+    "ty.importStrategy": "fromEnvironment",
+    "ty.inlayHints.callArgumentNames": false,
+    "ty.inlayHints.variableTypes": false,
+    "ty.disableLanguageServices": false,
+    "python.languageServer": "None", // Deactivate explicitly in favor of ty
+    "testing.automaticallyOpenTestResults": "neverOpen",
+    "testing.defaultGutterClickAction": "runWithCoverage",
+    "testing.coverageToolbarEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "--color=yes"
+    ],
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "files.eol": "\n",
+    "files.readonlyInclude": {
+        "uv.lock": true,
+        ".venv/**/*": true,
+        "**/dist/**/*": true,
+        ".python-version": true,
+    },
+    "files.exclude": {
+        ".ruff_cache": true,
+        ".pytest_cache": true,
+        ".coverage*": true,
+        "**/__pycache__": true,
+    },
+    "workbench.editorAssociations": {
+        "file:/**/*.md": "vscode.markdown.preview.editor",
+    },
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit",
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.rulers": [
+            88
+        ],
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "evenBetterToml.formatter.allowedBlankLines": 1,
+    "evenBetterToml.formatter.arrayAutoCollapse": false,
+    "evenBetterToml.formatter.arrayAutoExpand": false,
+    "evenBetterToml.formatter.inlineTableExpand": false,
+    "evenBetterToml.formatter.arrayTrailingComma": true,
+    "evenBetterToml.formatter.compactInlineTables": true,
+    "evenBetterToml.formatter.columnWidth": 200,
+    "evenBetterToml.formatter.trailingNewline": true,
+    "evenBetterToml.schema.enabled": false, // Pyproject.toml JSON-Schema is not always up-to-date
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": "explicit"
+        },
+        "editor.renderWhitespace": "boundary", // To see trailing whitespace characters
+    },
+    "[just]": {
+        "editor.defaultFormatter": "nefrob.vscode-just-syntax",
+        "editor.formatOnSave": true,
+    },
+    "vscode-just.runInTerminal": true,
+    "vscode-just.useSingleTerminal": true,
+}

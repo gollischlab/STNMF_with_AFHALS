@@ -1,0 +1,26 @@
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+#:schema https://www.schemastore.org/prek.json
+
+[[repos]]
+repo = "builtin"
+hooks = [
+    {id = "check-merge-conflict"},
+    {id = "check-yaml"},
+    {id = "check-toml"},
+    {id = "check-json5"},
+    {id = "end-of-file-fixer"},
+    {id = "trailing-whitespace", args = ["--markdown-linebreak-ext=md"]},
+    {id = "check-added-large-files"},
+]
+
+# Local hooks require UV
+[[repos]]
+repo = "local"
+hooks = [
+    {id = "uv-lock", name = "uv-lock", entry = "uv lock", language = "system", files = "^(uv\\.lock|pyproject\\.toml|uv\\.toml)$", pass_filenames = false},
+    {id = "ruff-check", name = "ruff-check", entry = "uv run ruff check", language = "system", types_or = ["python", "pyi"], args = ["--force-exclude", "--fix"], require_serial = true},
+    {id = "ruff-format", name = "ruff-format", entry = "uv run ruff format", language = "system", types_or = ["python", "pyi"], args = ["--force-exclude"], require_serial = true},
+    {id = "ty", name = "ty", entry = "uv run ty check src", language = "system", pass_filenames = false},
+    {id = "interrogate", name = "interrogate", entry = "uv run interrogate tests", language = "system", types_or = ["python", "pyi"], require_serial = true},
+]

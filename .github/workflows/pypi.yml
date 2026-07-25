@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+env:
+  UV_LOCKED: true
+  UV_NO_DEFAULT_GROUPS: true
+
 jobs:
   pypi-publish:
     name: Upload release to PyPI
@@ -17,20 +21,23 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.x'
+          python-version-file: .python-version
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install build
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+
+      - name: Install the project
+        run: uv sync
 
       - name: Build package
-        run: python -m build
+        run: uv build
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1

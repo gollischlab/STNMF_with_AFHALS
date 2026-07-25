@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+env:
+  UV_LOCKED: true
+
+jobs:
+  ci:
+    name: Lint and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version-file: .python-version
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+        with:
+          enable-cache: true
+
+      - name: Install the project
+        run: uv sync
+
+      - name: Lint
+        run: uv run ruff check --output-format=github .
+
+      - name: Format
+        run: uv run ruff format --diff
+
+      - name: Type checks
+        run: uv run ty check src
+
+      - name: Check docstrings in tests
+        run: uv run interrogate tests
+
+      - name: Test
+        run: uv run pytest --junitxml=junit/test-results.xml
+
+      - name: Upload pytest test results
+        uses: actions/upload-artifact@v7
+        with:
+          name: pytest-results
+          path: junit/test-results.xml
+          retention-days: 3
+        if: ${{ always() }}
